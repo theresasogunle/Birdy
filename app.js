@@ -5,7 +5,7 @@ const database = require('./dbconfig/database');
 const secrets = require('./dbconfig/secrets');
 const server = require('http').Server(app);
 
-require('configuration')(app, express);
+require('./configurations')(app, express);
 database.connect();
 
 

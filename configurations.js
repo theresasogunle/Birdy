@@ -1,12 +1,12 @@
 //2. CREATE EXPRESS CONFIG AWAY FROM MAIN APP 
 
 
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import morgan from 'logger';
-import path from 'path';
-import serveStatic from 'serve-static';
-import history from 'connect-history-api-fallback'
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const logger = require('morgan');
+const path = require('path');
+const serveStatic = require('serve-static');
+const history = require('connect-history-api-fallback')
 
 //CORS CONFIGURATION
 
@@ -36,7 +36,7 @@ const corsConfig = (req, next) => {
 }
 
 module.exports = (app, express) => {
-    
+
   const api = express.Router()
 
   app.use(cors(corsConfig), (req, res, next) => {
