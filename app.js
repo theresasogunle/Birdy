@@ -1,10 +1,15 @@
-var express = require('express')
-var app = express()
+const express = require('express');
+const app = express();
+const api = express.Router();
+const database = require('./dbconfig/database');
+const secrets = require('./dbconfig/secrets');
+const server = require('http').Server(app);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+require('configuration')(app, express);
+database.connect();
 
-app.listen(8000, function () {
-  console.log('Birdy listening on port 8000!')
-})
+
+module.exports = {
+  app,
+  server
+}
